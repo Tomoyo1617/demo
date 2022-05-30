@@ -31,20 +31,4 @@ public class User {
     @TableLogic
     @TableField(fill = FieldFill.INSERT)
     private Integer deleted;
-
-    public static void main(String[] args) {
-        String queryIP = "172:16.254.1";
-        String ip4[] = queryIP.split(":");
-        System.out.println(ip4.length);
-        for(int i = 0; i < ip4.length; i++){
-            System.out.println(ip4[i]);
-        }
-
-        String str1 = "aa,bb";
-        String[] split1 = str1.split(",");
-        System.out.println(split1.length);
-        for(int i = 0; i < split1.length; i++){
-            System.out.println(split1[i]);
-        }
-    }
 }
