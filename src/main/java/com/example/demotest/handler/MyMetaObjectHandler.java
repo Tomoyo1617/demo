@@ -1,0 +1,33 @@
+package com.example.demotest.handler;
+
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+
+/**
+ * @author Tomoyo
+ * @version V1.0
+ * @Package com.example.demotest.handler
+ * @date 2022/5/28 16:52
+ */
+@Component
+public class MyMetaObjectHandler implements MetaObjectHandler {
+
+    //mp执行添加操作，这个方法执行
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        this.setFieldValByName("version",1,metaObject);
+        this.setFieldValByName("createTime",new Date(),metaObject);
+        this.setFieldValByName("updateTime",new Date(),metaObject);
+        this.setFieldValByName("deleted",0,metaObject);
+    }
+
+    //mp执行修改操作，这个方法执行
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        this.setFieldValByName("updateTime",new Date(),metaObject);
+    }
+}
+
